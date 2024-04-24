@@ -24,7 +24,7 @@ config = Config()
 
 def get_sm64_operation(messages):
     if config.verbose:
-        print("[poker-agent] get_sm64_operation")
+        #print("[poker-agent] get_sm64_operation")
 
     screenshots_dir = "screenshots"
     if not os.path.exists(screenshots_dir):
@@ -62,7 +62,7 @@ def get_sm64_operation(messages):
 
     content = response.choices[0].message.content
     if config.verbose:
-        print("[poker-agent] preprocessed content", content)
+        #print("[poker-agent] preprocessed content", content)
 
     content = clean_json(content)
 
@@ -77,7 +77,7 @@ def get_sm64_operation(messages):
 
 def get_poker_operation(move_or_not_messages):
     if config.verbose:
-        print("[poker-agent] get_poker_operation")
+        #print("[poker-agent] get_poker_operation")
 
     screenshots_dir = "screenshots"
     if not os.path.exists(screenshots_dir):
@@ -115,7 +115,7 @@ def get_poker_operation(move_or_not_messages):
 
     content = response.choices[0].message.content
     if config.verbose:
-        print("[poker-agent] preprocessed content", content)
+        #print("[poker-agent] preprocessed content", content)
 
     content = clean_json(content)
 
@@ -154,12 +154,12 @@ def process_ocr(messages, content, content_str, screenshot_filename):
     processed_content = None
 
     if config.verbose:
-        print(
-            "[process_ocr] operation",
-            content,
-        )
+        #print(
+           # "[process_ocr] operation",
+           # content,
+        #)
 
-    print(f'\n\nCONTENT {content} \n\n')
+    #print(f'\n\nCONTENT {content} \n\n')
 
     communityCards = json.loads(content.get("boardState")).get("communityCards")
     holeCards = json.loads(content.get("boardState")).get("holeCards")

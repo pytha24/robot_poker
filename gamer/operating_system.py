@@ -14,8 +14,8 @@ class OperatingSystem:
 
     def press(self, keys, duration=1.0):
         if DEBUG:
-            print("[press]")
-            print("[press] keys", keys)
+            #print("[press]")
+            #print("[press] keys", keys)
 
         if not isinstance(keys, list):
             keys = [keys]
@@ -26,7 +26,7 @@ class OperatingSystem:
             for key in keys:
                 pyautogui.keyUp(key)
         except Exception as e:
-            print("[OperatingSystem][press] error:", e)
+            #print("[OperatingSystem][press] error:", e)
 
     def capture_screen(self, file_path):
         subprocess.run(["screencapture", "-C", file_path])
@@ -40,7 +40,7 @@ class OperatingSystem:
                 self.click_at_percentage(x, y)
 
         except Exception as e:
-            print("[OperatingSystem][mouse] error:", e)
+            #print("[OperatingSystem][mouse] error:", e)
 
     def click_at_percentage(
         self,
@@ -65,13 +65,13 @@ class OperatingSystem:
                 pyautogui.moveTo(x, y, duration=0.1)
 
             if config.verbose:
-                print("[click_at_percentage] clicking at:", x_pixel, y_pixel)
+                #print("[click_at_percentage] clicking at:", x_pixel, y_pixel)
 
             pyautogui.click(x_pixel, y_pixel)
             pyautogui.moveTo(screen_width / 2, screen_height / 2, duration=0.1)
 
         except Exception as e:
-            print("[OperatingSystem][click_at_percentage] error:", e)
+            #print("[OperatingSystem][click_at_percentage] error:", e)
 
 
 def convert_percent_to_decimal(percent):
@@ -82,5 +82,5 @@ def convert_percent_to_decimal(percent):
         # Convert to decimal (e.g., 20% -> 0.20)
         return decimal_value
     except ValueError as e:
-        print(f"[convert_percent_to_decimal] error: {e}")
+        #print(f"[convert_percent_to_decimal] error: {e}")
         return None

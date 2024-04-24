@@ -16,20 +16,20 @@ def calculate_action(community_cards: List[str], hole_cards: List[str], currentP
     # Estimate the probability of winning based on hand strength
     win_probability = hand_strength / 9
 
-    print("\n\n\n")
+    #print("\n\n\n")
 
-    print('community_cards', community_cards)
-    print('hole_cards', hole_cards)
-    print('currentPotValue', currentPotValue)
-    print('raiseAmounts', raiseAmounts)
-    print('hand_strength', hand_strength)
-    print('raisedBy', raisedBy)
-    print('betsBeenMade', betsBeenMade)
-    print('call_amount', call_amount)
-    print('pot_odds', pot_odds / 2)
-    print('win_probability', win_probability)
+    #print('community_cards', community_cards)
+    #print('hole_cards', hole_cards)
+    #print('currentPotValue', currentPotValue)
+    #print('raiseAmounts', raiseAmounts)
+    #print('hand_strength', hand_strength)
+    #print('raisedBy', raisedBy)
+    #print('betsBeenMade', betsBeenMade)
+    #print('call_amount', call_amount)
+    #print('pot_odds', pot_odds / 2)
+    #print('win_probability', win_probability)
 
-    print("\n\n\n")
+    #print("\n\n\n")
 
 
     # Make a decision based on hand strength and pot odds

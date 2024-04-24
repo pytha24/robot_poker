@@ -15,7 +15,7 @@ debug = True
 
 
 def main():
-    print("[poker-agent]")
+    #print("[poker-agent]")
 
     system_prompt = get_system_prompt()
     system_message = {"role": "system", "content": system_prompt}
@@ -23,7 +23,7 @@ def main():
     # wait for two seconds
 
     if debug:
-        print("[poker-agent] starting")
+        #print("[poker-agent] starting")
 
     loop_count = 0
 
@@ -33,14 +33,14 @@ def main():
         time.sleep(2)
 
         if len(messages) > 5:
-            print("[poker-agent] truncating earlier message")
+            #print("[poker-agent] truncating earlier message")
             messages = [system_message] + messages[-4:]
 
         operation = get_poker_operation(
                 messages
             )  # at https://www.247freepoker.com/
             
-        print("[poker-agent] operation", operation)
+        #print("[poker-agent] operation", operation)
 
         operate(operation)
 
@@ -51,7 +51,7 @@ def main():
 
 def operate(preprocessed_operation):
     if debug:
-        print("[poker-agent] operate")
+        #print("[poker-agent] operate")
 
     # print("[poker-agent] action", action)
     # print("[poker-agent] thought", thought)
@@ -59,7 +59,7 @@ def operate(preprocessed_operation):
     operations = adapters.poker(preprocessed_operation)
 
     if debug:
-        print("[poker-agent] operations", operations)
+        #print("[poker-agent] operations", operations)
 
     for operation in operations:
         # if debug:
@@ -68,26 +68,26 @@ def operate(preprocessed_operation):
 
         if operate_type == "press":
             if debug:
-                print("[poker-agent] press operation!")
+                #print("[poker-agent] press operation!")
             key = operation.get("key")
             duration = operation.get("duration", 0.5)
             operating_system.press(key, duration)
         elif operate_type == "write":
             if debug:
-                print("[poker-agent] write operation!")
+                #print("[poker-agent] write operation!")
             content = operation.get("content")
             operate_detail = content
             # operating_system.write(content)
         elif operate_type == "click":
             if debug:
-                print("[poker-agent] click operation!")
+                #print("[poker-agent] click operation!")
             x = operation.get("x")
             y = operation.get("y")
             click_detail = {"x": x, "y": y}
 
             operating_system.mouse(click_detail)
         else:
-            print("[poker-agent] operation not mapped, no problem!")
+            #print("[poker-agent] operation not mapped, no problem!")
             return
 
 
